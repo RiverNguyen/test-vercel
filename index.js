@@ -6,7 +6,7 @@ import workerRouter from "./router/worker.js";
 dotenv.config();
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 const post = process.env.PORT;
 
 connect(process.env.DB_URI);
