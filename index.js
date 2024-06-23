@@ -1,8 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connect } from "mongoose";
-import productRouter from "./router/product.js";
-import categoryRouter from "./router/category.js";
+import workerRouter from "./router/product.js";
 
 dotenv.config();
 const app = express();
@@ -16,5 +15,4 @@ app.listen(post, () => {
     console.log(`Server is running on port http://localhost:${post}`);
 });
 
-app.use("/api", productRouter);
-app.use("/api", categoryRouter);
+app.use("/api", workerRouter);
