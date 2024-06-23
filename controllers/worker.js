@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import { Worker } from "../models/worker.js";
 
-const getAll = async (req, res) => {
+export const getAll = async (req, res) => {
     try {
         const workers = await Worker.find({});
         return res.status(StatusCodes.OK).json({ workers });
@@ -10,7 +10,7 @@ const getAll = async (req, res) => {
     }
 };
 
-const getOne = async (req, res) => {
+export const getOne = async (req, res) => {
     try {
         const worker = await Worker.findById(req.params.id);
         return res.status(StatusCodes.OK).json({ worker });
@@ -19,7 +19,7 @@ const getOne = async (req, res) => {
     }
 };
 
-const create = async (req, res) => {
+export const create = async (req, res) => {
     try {
         const worker = await Worker.create(req.body);
         return res.status(StatusCodes.CREATED).json({ worker });
@@ -28,7 +28,7 @@ const create = async (req, res) => {
     }
 };
 
-const update = async (req, res) => {
+export const update = async (req, res) => {
     try {
         const worker = await Worker.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
@@ -39,7 +39,7 @@ const update = async (req, res) => {
     }
 };
 
-const remove = async (req, res) => {
+export const remove = async (req, res) => {
     try {
         const worker = await Worker.findByIdAndDelete(req.params.id);
         return res.status(StatusCodes.OK).json({ worker });
