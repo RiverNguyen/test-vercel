@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { connect } from "mongoose";
 import workerRouter from "./router/worker.js";
 
