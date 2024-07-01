@@ -7,41 +7,22 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        shortDescription: {
-            type: String,
-        },
         description: {
             type: String,
-        },
-        category: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Category",
-            required: true,
-        },
-        thumbnail: {
-            type: String,
-            required: true,
         },
         images: [
             {
                 type: String,
             },
         ],
-        start_price: {
+        price: {
             type: Number,
             required: true,
         },
-        start_time: {
-            type: Date,
-            required: true,
-        },
-        end_time: {
-            type: Date,
-            required: true,
-        },
-        step: {
+        countInStock: {
             type: Number,
             required: true,
+            default: 0,
         },
     },
     {
@@ -50,19 +31,4 @@ const productSchema = new mongoose.Schema(
     }
 );
 
-const categorySchema = new mongoose.Schema(
-    {
-        name: {
-            type: String,
-            required: true,
-        },
-    },
-    {
-        timestamps: true,
-        versionKey: false,
-    }
-);
-
-export const Product = mongoose.model("Product", productSchema);
-
-export const Category = mongoose.model("Category", categorySchema);
+export default mongoose.model("Product", productSchema);
