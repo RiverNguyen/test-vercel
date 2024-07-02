@@ -3,7 +3,7 @@ import Product from "../models/product.js";
 
 export const getAll = async (req, res) => {
     try {
-        const products = await Product.find({});
+        const products = await Product.find({}).sort({ createdAt: -1 });
         return res.status(StatusCodes.OK).json(products);
     } catch (error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
